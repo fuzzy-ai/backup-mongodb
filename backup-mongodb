@@ -1,0 +1,20 @@
+#!/bin/sh
+
+set -e
+
+if [ -z ${HOST+x} ]; then
+  echo "HOST environment variable is required"
+  exit 1
+fi
+
+if [ -z ${DATABASE+x} ]; then
+  echo "DATABASE environment variable is required"
+  exit 1
+fi
+
+TMPDIR=/tmp/backup
+BACKUPDIR=/backup
+
+/usr/bin/mongodump -h $HOST -d $DATABASE -o $TMPDIR
+tar zcvf ${BACKUPDIR}/${DATABASE}-$(date -u +"%Y-%m-%d").tar.gz $TMPDIR/$DATABASE
+rm -Rf $TMPDIR/$DATABASE

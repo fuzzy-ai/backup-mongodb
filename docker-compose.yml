@@ -1,0 +1,13 @@
+version: '2'
+services:
+  foobar:
+    image: mongo:3.2
+  backup:
+    build: .
+    links:
+    - foobar:foobar
+    volumes:
+     - ./backup:/backup
+    environment:
+      HOST: foobar
+      DATABASE: bazquux
