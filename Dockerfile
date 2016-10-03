@@ -6,7 +6,7 @@ RUN apk add \
   mongodb-tools
 
 COPY backup-mongodb /usr/local/bin/backup-mongodb
-COPY root.cron /var/spool/cron/crontabs/root
+RUN echo "34 4	*	*	/usr/local/bin/backup-mongodb" /var/spool/cron/crontabs/root
 RUN chmod +x /usr/local/bin/backup-mongodb
 
 # Run Busybox crond in the foreground
