@@ -1,10 +1,10 @@
 backup-mongodb
-==============
+--------------
 
 This is a [Docker](https://docker.com/) image for periodically backing up [MongoDB](https://mongodb.org/) databases.
 
 License
--------
+=======
 
 Written in 2016 by Evan Prodromou <evan@fuzzy.ai>
 
@@ -16,7 +16,7 @@ You should have received a copy of the CC0 Public Domain Dedication along with
 this software. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
 
 Installation
-------------
+============
 
 The image is available on [Docker Hub](https://hub.docker.com/) as [fuzzyio/backup-mongodb](https://hub.docker.com/r/fuzzyio/backup-mongodb/).
 
@@ -25,7 +25,7 @@ The image is available on [Docker Hub](https://hub.docker.com/) as [fuzzyio/back
 ```
 
 Configuration
--------------
+=============
 
 The container makes a daily date-stamped backup of the MongoDB database you
 specify to its `/backup` directory. You'll typically want to attach a [volume](https://docs.docker.com/engine/tutorials/dockervolumes/)
